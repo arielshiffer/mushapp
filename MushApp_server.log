@@ -1,0 +1,108 @@
+2023-05-30 20:14:16,968:client wants to connect
+2023-05-30 20:14:16,976:['GET', '/', 'HTTP/1.1']
+2023-05-30 20:14:18,959:['POST', '/log', 'HTTP/1.1']
+2023-05-30 20:14:18,959:checking what the client wants to do
+2023-05-30 20:14:18,959:checking client in database
+2023-05-30 20:14:18,968:encrypting the client password in case something happen to the data base
+2023-05-30 20:14:18,981:client already connected before
+2023-05-30 20:14:18,981:generating a new party and a random code
+2023-05-30 20:14:18,981:giving to the client his id and party code
+2023-05-30 20:14:18,981:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#27661
+2023-05-30 20:14:21,037:['GET', '/start', 'HTTP/1.1']
+2023-05-30 20:14:21,037:checking what the client wants to do
+2023-05-30 20:14:21,037:client started a party so moving his socket to the thread
+2023-05-30 20:14:21,037:HTTP/1.1 200 0K
+
+
+2023-05-30 20:14:21,040:client have reached the party
+2023-05-30 20:14:34,342:got a msg from leader
+2023-05-30 20:14:34,343:['GET', '/Party/fly-me-to-the-moon', 'HTTP/1.1']
+2023-05-30 20:14:34,343:fly-me-to-the-moon
+2023-05-30 20:14:34,343:got a song request
+2023-05-30 20:14:34,345:we got the song he wants
+2023-05-30 20:14:34,345:getting mp3 file data
+2023-05-30 20:14:34,354:sending the messages to the party members
+2023-05-30 20:17:38,325:got a msg from leader
+2023-05-30 20:17:38,325:['GET', '/Party/fly-me-to-the-moon', 'HTTP/1.1']
+2023-05-30 20:17:38,325:fly-me-to-the-moon
+2023-05-30 20:17:38,325:got a song request
+2023-05-30 20:17:38,326:we got the song he wants
+2023-05-30 20:17:38,326:getting mp3 file data
+2023-05-30 20:17:38,340:sending the messages to the party members
+2023-05-30 20:19:22,757:got a msg from leader
+2023-05-30 20:19:22,757:['GET', '/Party/wet-dreamz', 'HTTP/1.1']
+2023-05-30 20:19:22,757:wet-dreamz
+2023-05-30 20:19:22,757:got a song request
+2023-05-30 20:19:22,758:we got the song he wants
+2023-05-30 20:19:22,758:getting mp3 file data
+2023-05-30 20:19:22,776:sending the messages to the party members
+2023-05-30 20:19:32,563:got a msg from leader
+2023-05-30 20:19:32,563:['GET', '/Party/blabla', 'HTTP/1.1']
+2023-05-30 20:19:32,563:blabla
+2023-05-30 20:19:32,563:got a song request
+2023-05-30 20:19:32,564:don't have this song on the database
+2023-05-30 20:19:32,564:send to the requester that the name is incorrect
+2023-05-30 20:19:32,564:sent that client has bad request
+2023-05-30 20:19:32,565:sending the messages to the party members
+2023-05-30 20:20:05,017:got a msg from leader
+2023-05-30 20:20:05,017:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-05-30 20:20:05,017:['']
+2023-05-30 20:21:14,067:client wants to connect
+2023-05-30 20:21:14,069:['GET', '/', 'HTTP/1.1']
+2023-05-30 20:21:34,558:['POST', '/sign', 'HTTP/1.1']
+2023-05-30 20:21:34,558:checking what the client wants to do
+2023-05-30 20:21:34,558:adding client to database
+2023-05-30 20:21:34,558:encrypting the client password in case something happen to the data base
+2023-05-30 20:21:34,567:generating a new party and a random code
+2023-05-30 20:21:34,567:giving to the client his id and party code
+2023-05-30 20:21:34,567:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#99818
+2023-05-30 20:21:50,454:['GET', '/start', 'HTTP/1.1']
+2023-05-30 20:21:50,454:checking what the client wants to do
+2023-05-30 20:21:50,454:client started a party so moving his socket to the thread
+2023-05-30 20:21:50,454:HTTP/1.1 200 0K
+
+
+2023-05-30 20:21:50,455:client have reached the party
+2023-05-30 20:22:04,452:got a msg from leader
+2023-05-30 20:22:04,452:['GET', '/Party/shape-of-you', 'HTTP/1.1']
+2023-05-30 20:22:04,452:shape-of-you
+2023-05-30 20:22:04,452:got a song request
+2023-05-30 20:22:04,453:we got the song he wants
+2023-05-30 20:22:04,453:getting mp3 file data
+2023-05-30 20:22:04,474:sending the messages to the party members
+2023-05-30 20:22:29,986:got a msg from leader
+2023-05-30 20:22:29,986:['GET', '/Party/counting-stars', 'HTTP/1.1']
+2023-05-30 20:22:29,986:counting-stars
+2023-05-30 20:22:29,986:got a song request
+2023-05-30 20:22:29,987:we got the song he wants
+2023-05-30 20:22:29,987:getting mp3 file data
+2023-05-30 20:22:30,028:sending the messages to the party members
+2023-05-30 20:22:51,767:got a msg from leader
+2023-05-30 20:22:51,767:['GET', '/Party/hello', 'HTTP/1.1']
+2023-05-30 20:22:51,767:hello
+2023-05-30 20:22:51,767:got a song request
+2023-05-30 20:22:51,768:we got the song he wants
+2023-05-30 20:22:51,768:getting mp3 file data
+2023-05-30 20:22:51,793:sending the messages to the party members
+2023-05-30 20:23:05,516:got a msg from leader
+2023-05-30 20:23:05,516:['GET', '/Party/random', 'HTTP/1.1']
+2023-05-30 20:23:05,516:random
+2023-05-30 20:23:05,517:got a song request
+2023-05-30 20:23:05,518:don't have this song on the database
+2023-05-30 20:23:05,518:send to the requester that the name is incorrect
+2023-05-30 20:23:05,518:sent that client has bad request
+2023-05-30 20:23:05,518:sending the messages to the party members
+2023-05-30 20:23:36,536:got a msg from leader
+2023-05-30 20:23:36,536:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-05-30 20:23:36,537:['']
+2023-05-30 22:28:53,468:client wants to connect
+2023-05-30 22:28:53,479:['GET', '/', 'HTTP/1.1']
+2023-05-30 22:28:56,928:[WinError 10054] An existing connection was forcibly closed by the remote host
