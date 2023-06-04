@@ -279,7 +279,7 @@ def add_to_db(data, id, str_client_socket):
     logging.debug('adding client to database')
     conn = sqlite3.connect('mushapp_data.db')
     cursor = conn.cursor()
-    hash_password = hash_string(data[3])
+    hash_password = data[3]
     cursor.execute("SELECT * FROM users WHERE Password=(?)",
                    (hash_password,))
     if cursor.fetchone() is None:
@@ -316,7 +316,7 @@ def check_in_db(data, id, str_client_socket):
     logging.debug('checking client in database')
     conn = sqlite3.connect('mushapp_data.db')
     cursor = conn.cursor()
-    hash_password = hash_string(data[3])
+    hash_password = data[3]
     cursor.execute("SELECT * FROM users WHERE Password=(?) AND Name=(?)",
                    (hash_password, data[1]))
     if cursor.fetchone() is not None:

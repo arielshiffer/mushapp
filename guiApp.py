@@ -11,6 +11,7 @@ from kivy.uix.screenmanager import\
 from kivy.clock import Clock
 import socket
 import logging
+import hashlib
 
 # Consts
 METHODS = ['GET', 'POST', 'PATCH']
@@ -193,6 +194,26 @@ def handle_http_respond(is_it_bytes=False):
             logging.debug('we have a problem')
             return 'BAD', None
 
+
+def hash_string(string):
+    """
+    For safety reasons every time we save a users password
+    in the database we first hash encode it.
+    :param string:the users password, string.
+    :return:the hash of the password.
+    """
+    logging.debug('encrypting the client password in case '
+                  'something happen to the database')
+    # Create a new SHA-256 hash object
+    sha256_hash = hashlib.sha256()
+
+    # Convert the string to bytes and update the hash object
+    sha256_hash.update(string.encode('utf-8'))
+
+    # Get the hashed value as a hexadecimal string
+    hashed_string = sha256_hash.hexdigest()
+    return str(hashed_string)
+
 # ---------------------------------------------------------------------------------------------------
 
 
@@ -336,8 +357,9 @@ class LogClientInfo(GridLayout):
         data base
         """
         api = '/log'
+        hash_password = hash_string(self.c_password.text)
         body = 'name#{}#password#{}'.format(self.c_username.text,
-                                            self.c_password.text)
+                                            hash_password)
         http_request = create_http_request(METHODS[1], api, body)
         client_socket.send_data(http_request)
         logging.debug('client sent a log in request')
@@ -381,8 +403,9 @@ class SignClientInfo(GridLayout):
         database.
         """
         api = '/sign'
+        hash_password = hash_string(self.c_password.text)
         body = 'name#{}#password#{}'.format(self.c_username.text,
-                                            self.c_password.text)
+                                            hash_password)
         http_request = create_http_request(METHODS[1], api, body)
         client_socket.send_data(http_request)
         logging.debug('client sent a sign up request')

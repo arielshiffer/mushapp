@@ -5,7 +5,7 @@ cursor = conn.cursor()
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
 table_exists = cursor.fetchone() is not None
 if not table_exists:
-    print('here')
+    print('adding client')
     cursor.execute("""CREATE TABLE users (
                 Name text,
                 Password text,
