@@ -246,26 +246,6 @@ def generate_new_party(leader_socket):
     return code
 
 
-def hash_string(string):
-    """
-    For safety reasons every time we save a users password
-    in the database we first hash encode it.
-    :param string:the users password, string.
-    :return:the hash of the password.
-    """
-    logging.debug('encrypting the client password in case '
-                  'something happen to the database')
-    # Create a new SHA-256 hash object
-    sha256_hash = hashlib.sha256()
-
-    # Convert the string to bytes and update the hash object
-    sha256_hash.update(string.encode('utf-8'))
-
-    # Get the hashed value as a hexadecimal string
-    hashed_string = sha256_hash.hexdigest()
-    return str(hashed_string)
-
-
 def add_to_db(data, id, str_client_socket):
     """
     Adding a new user to the database.
