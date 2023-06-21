@@ -456,9 +456,6 @@ def main():
                         # handle the received data
                         flag, data = validate_http_request(data)
                         if data != BAD_REQUEST:
-                            print(data)
-                            print(id)
-                            print(client_socket)
                             msg_to_return, client_id, party_code = \
                                 process_client(data, current_socket, id)
                             if client_id != 0 and party_code != '0':
