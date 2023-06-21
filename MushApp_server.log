@@ -106,3 +106,354 @@ id#1#party#99818
 2023-05-30 22:28:53,468:client wants to connect
 2023-05-30 22:28:53,479:['GET', '/', 'HTTP/1.1']
 2023-05-30 22:28:56,928:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-04 21:23:58,353:client wants to connect
+2023-06-04 21:23:58,361:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:24:05,039:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-04 21:24:12,487:client wants to connect
+2023-06-04 21:24:12,492:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:24:16,843:['POST', '/sign', 'HTTP/1.1']
+2023-06-04 21:24:16,844:checking what the client wants to do
+2023-06-04 21:24:16,844:adding client to database
+2023-06-04 21:24:16,871:generating a new party and a random code
+2023-06-04 21:24:16,872:giving to the client his id and party code
+2023-06-04 21:24:16,872:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#79469
+2023-06-04 21:24:17,680:['GET', '/start', 'HTTP/1.1']
+2023-06-04 21:24:17,680:checking what the client wants to do
+2023-06-04 21:24:17,681:client started a party so moving his socket to the thread
+2023-06-04 21:24:17,681:HTTP/1.1 200 0K
+
+
+2023-06-04 21:24:17,682:client have reached the party
+2023-06-04 21:24:21,335:got a msg from leader
+2023-06-04 21:24:21,335:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-04 21:24:21,336:stan
+2023-06-04 21:24:21,336:got a song request
+2023-06-04 21:24:21,337:we got the song he wants
+2023-06-04 21:24:21,337:getting mp3 file data
+2023-06-04 21:26:09,265:client wants to connect
+2023-06-04 21:26:09,267:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:26:14,196:['POST', '/log', 'HTTP/1.1']
+2023-06-04 21:26:14,196:checking what the client wants to do
+2023-06-04 21:26:14,196:checking client in database
+2023-06-04 21:26:14,204:client already connected before
+2023-06-04 21:26:14,204:generating a new party and a random code
+2023-06-04 21:26:14,205:giving to the client his id and party code
+2023-06-04 21:26:14,205:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#2#party#15193
+2023-06-04 21:26:14,918:['GET', '/start', 'HTTP/1.1']
+2023-06-04 21:26:14,918:checking what the client wants to do
+2023-06-04 21:26:14,919:client started a party so moving his socket to the thread
+2023-06-04 21:26:14,919:HTTP/1.1 200 0K
+
+
+2023-06-04 21:26:14,919:client have reached the party
+2023-06-04 21:26:17,844:got a msg from leader
+2023-06-04 21:26:17,844:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-04 21:26:17,844:stan
+2023-06-04 21:26:17,845:got a song request
+2023-06-04 21:26:17,846:we got the song he wants
+2023-06-04 21:26:17,847:getting mp3 file data
+2023-06-04 21:26:17,866:sending the messages to the party members
+2023-06-04 21:26:45,862:got a msg from leader
+2023-06-04 21:26:45,862:['GET', '/Party/flashing-lights', 'HTTP/1.1']
+2023-06-04 21:26:45,863:flashing-lights
+2023-06-04 21:26:45,863:got a song request
+2023-06-04 21:26:45,866:we got the song he wants
+2023-06-04 21:26:45,866:getting mp3 file data
+2023-06-04 21:26:45,895:sending the messages to the party members
+2023-06-04 21:27:12,896:got a msg from leader
+2023-06-04 21:27:12,897:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-04 21:27:12,897:['']
+2023-06-04 21:44:48,617:client wants to connect
+2023-06-04 21:44:48,625:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:44:50,400:['POST', '/log', 'HTTP/1.1']
+2023-06-04 21:44:50,401:checking what the client wants to do
+2023-06-04 21:44:50,401:checking client in database
+2023-06-04 21:44:50,423:client already connected before
+2023-06-04 21:44:50,423:generating a new party and a random code
+2023-06-04 21:44:50,424:giving to the client his id and party code
+2023-06-04 21:44:50,424:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#32646
+2023-06-04 21:44:50,958:['GET', '/start', 'HTTP/1.1']
+2023-06-04 21:44:50,958:checking what the client wants to do
+2023-06-04 21:44:50,958:client started a party so moving his socket to the thread
+2023-06-04 21:44:50,960:HTTP/1.1 200 0K
+
+
+2023-06-04 21:44:50,961:client have reached the party
+2023-06-04 21:44:53,690:got a msg from leader
+2023-06-04 21:44:53,690:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-04 21:44:53,690:stan
+2023-06-04 21:44:53,690:got a song request
+2023-06-04 21:44:53,692:we got the song he wants
+2023-06-04 21:44:53,693:getting mp3 file data
+2023-06-04 21:47:55,090:client wants to connect
+2023-06-04 21:47:55,093:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:47:58,119:['POST', '/log', 'HTTP/1.1']
+2023-06-04 21:47:58,120:checking what the client wants to do
+2023-06-04 21:47:58,120:checking client in database
+2023-06-04 21:47:58,128:client already connected before
+2023-06-04 21:47:58,130:generating a new party and a random code
+2023-06-04 21:47:58,130:giving to the client his id and party code
+2023-06-04 21:47:58,130:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#84708
+2023-06-04 21:48:00,240:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-04 21:48:21,015:client wants to connect
+2023-06-04 21:48:21,016:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:48:23,982:['POST', '/sign', 'HTTP/1.1']
+2023-06-04 21:48:23,982:checking what the client wants to do
+2023-06-04 21:48:23,982:adding client to database
+2023-06-04 21:48:23,990:generating a new party and a random code
+2023-06-04 21:48:23,990:giving to the client his id and party code
+2023-06-04 21:48:23,990:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#64233
+2023-06-04 21:48:26,046:['GET', '/start', 'HTTP/1.1']
+2023-06-04 21:48:26,046:checking what the client wants to do
+2023-06-04 21:48:26,047:client started a party so moving his socket to the thread
+2023-06-04 21:48:26,047:HTTP/1.1 200 0K
+
+
+2023-06-04 21:48:26,048:client have reached the party
+2023-06-04 21:48:29,188:got a msg from leader
+2023-06-04 21:48:29,188:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-04 21:48:29,188:stan
+2023-06-04 21:48:29,188:got a song request
+2023-06-04 21:48:29,190:we got the song he wants
+2023-06-04 21:48:29,191:getting mp3 file data
+2023-06-04 21:48:29,217:sending the messages to the party members
+2023-06-04 21:48:32,715:got a msg from leader
+2023-06-04 21:48:32,715:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-04 21:48:32,717:['']
+2023-06-04 21:50:54,436:client wants to connect
+2023-06-04 21:50:54,439:['GET', '/', 'HTTP/1.1']
+2023-06-04 21:50:57,840:['POST', '/log', 'HTTP/1.1']
+2023-06-04 21:50:57,840:checking what the client wants to do
+2023-06-04 21:50:57,840:checking client in database
+2023-06-04 21:50:57,848:client already connected before
+2023-06-04 21:50:57,849:generating a new party and a random code
+2023-06-04 21:50:57,849:giving to the client his id and party code
+2023-06-04 21:50:57,849:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#2#party#77591
+2023-06-04 21:50:58,426:['GET', '/start', 'HTTP/1.1']
+2023-06-04 21:50:58,426:checking what the client wants to do
+2023-06-04 21:50:58,426:client started a party so moving his socket to the thread
+2023-06-04 21:50:58,426:HTTP/1.1 200 0K
+
+
+2023-06-04 21:50:58,427:client have reached the party
+2023-06-04 21:51:01,054:got a msg from leader
+2023-06-04 21:51:01,054:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-04 21:51:01,054:stan
+2023-06-04 21:51:01,054:got a song request
+2023-06-04 21:51:01,055:we got the song he wants
+2023-06-04 21:51:01,056:getting mp3 file data
+2023-06-04 21:51:01,083:sending the messages to the party members
+2023-06-05 02:00:12,693:client wants to connect
+2023-06-05 02:00:12,703:['GET', '/', 'HTTP/1.1']
+2023-06-05 02:00:49,844:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-05 02:01:49,282:client wants to connect
+2023-06-05 02:01:49,286:['GET', '/', 'HTTP/1.1']
+2023-06-05 02:01:52,405:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-12 17:24:11,415:client wants to connect
+2023-06-12 17:24:11,417:['GET', '/', 'HTTP/1.1']
+2023-06-12 17:24:20,201:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-12 17:25:13,071:client wants to connect
+2023-06-12 17:25:13,073:['GET', '/', 'HTTP/1.1']
+2023-06-12 17:25:31,247:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-12 17:41:57,719:client wants to connect
+2023-06-12 17:41:57,724:['GET', '/', 'HTTP/1.1']
+2023-06-12 17:42:00,513:['POST', '/sign', 'HTTP/1.1']
+2023-06-12 17:42:00,513:checking what the client wants to do
+2023-06-12 17:42:00,513:adding client to database
+2023-06-12 17:42:00,538:generating a new party and a random code
+2023-06-12 17:42:00,538:giving to the client his id and party code
+2023-06-12 17:42:00,538:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#93829
+2023-06-12 17:42:01,831:['GET', '/start', 'HTTP/1.1']
+2023-06-12 17:42:01,831:checking what the client wants to do
+2023-06-12 17:42:01,831:client started a party so moving his socket to the thread
+2023-06-12 17:42:01,831:HTTP/1.1 200 0K
+
+
+2023-06-12 17:42:01,832:client have reached the party
+2023-06-12 17:42:05,207:got a msg from leader
+2023-06-12 17:42:05,208:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-12 17:42:05,208:stan
+2023-06-12 17:42:05,208:got a song request
+2023-06-12 17:42:05,210:we got the song he wants
+2023-06-12 17:42:05,210:getting mp3 file data
+2023-06-12 17:42:05,254:sending the messages to the party members
+2023-06-12 17:42:24,119:got a msg from leader
+2023-06-12 17:42:24,120:['GET', '/Party/flashing_lights', 'HTTP/1.1']
+2023-06-12 17:42:24,120:flashing_lights
+2023-06-12 17:42:24,120:got a song request
+2023-06-12 17:42:24,121:don't have this song on the database
+2023-06-12 17:42:24,121:send to the requester that the name is incorrect
+2023-06-12 17:42:24,121:sent that client has bad request
+2023-06-12 17:42:24,122:sending the messages to the party members
+2023-06-12 17:42:31,198:got a msg from leader
+2023-06-12 17:42:31,199:['GET', '/Party/flashing-lights', 'HTTP/1.1']
+2023-06-12 17:42:31,199:flashing-lights
+2023-06-12 17:42:31,199:got a song request
+2023-06-12 17:42:31,199:we got the song he wants
+2023-06-12 17:42:31,200:getting mp3 file data
+2023-06-12 17:42:31,232:sending the messages to the party members
+2023-06-12 17:42:37,658:got a msg from leader
+2023-06-12 17:42:37,661:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-12 17:42:37,661:['']
+2023-06-12 17:49:39,703:[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2023-06-12 17:49:47,249:[WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2023-06-12 17:50:13,054:client wants to connect
+2023-06-12 17:50:13,060:['GET', '/', 'HTTP/1.1']
+2023-06-12 17:50:14,233:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:04:18,582:client wants to connect
+2023-06-13 00:04:18,588:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:04:47,331:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:28:16,401:client wants to connect
+2023-06-13 00:28:16,408:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:29:23,983:client wants to connect
+2023-06-13 00:29:23,986:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:29:36,395:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:30:22,637:client wants to connect
+2023-06-13 00:30:22,640:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:30:31,199:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:33:54,379:client wants to connect
+2023-06-13 00:33:54,381:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:34:03,202:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:34:21,058:client wants to connect
+2023-06-13 00:34:21,061:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:34:33,065:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:35:04,368:client wants to connect
+2023-06-13 00:35:04,372:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:35:21,879:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-13 00:36:29,131:client wants to connect
+2023-06-13 00:36:29,134:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:36:49,755:['POST', '/upload', 'HTTP/1.1']
+2023-06-13 00:36:49,756:checking what the client wants to do
+2023-06-13 00:39:44,210:client wants to connect
+2023-06-13 00:39:44,212:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:40:03,988:['POST', '/upload', 'HTTP/1.1']
+2023-06-13 00:40:03,989:checking what the client wants to do
+2023-06-13 00:42:09,582:client wants to connect
+2023-06-13 00:42:09,588:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:42:41,901:['POST', '/upload', 'HTTP/1.1']
+2023-06-13 00:42:41,901:checking what the client wants to do
+2023-06-13 00:44:07,419:client wants to connect
+2023-06-13 00:44:07,422:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:44:28,276:['POST', '/upload', 'HTTP/1.1']
+2023-06-13 00:44:28,276:checking what the client wants to do
+2023-06-13 00:49:10,487:client wants to connect
+2023-06-13 00:49:10,491:['GET', '/', 'HTTP/1.1']
+2023-06-13 00:49:34,314:['POST', '/upload', 'HTTP/1.1']
+2023-06-13 00:49:34,314:checking what the client wants to do
+2023-06-21 11:43:21,423:client wants to connect
+2023-06-21 11:43:21,430:['GET', '/', 'HTTP/1.1']
+2023-06-21 11:44:28,126:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 11:44:28,126:checking what the client wants to do
+2023-06-21 11:44:46,657:client wants to connect
+2023-06-21 11:44:46,659:['GET', '/', 'HTTP/1.1']
+2023-06-21 11:44:52,557:['POST', '/sign', 'HTTP/1.1']
+2023-06-21 11:44:52,559:checking what the client wants to do
+2023-06-21 11:44:52,559:adding client to database
+2023-06-21 11:44:52,582:generating a new party and a random code
+2023-06-21 11:44:52,582:giving to the client his id and party code
+2023-06-21 11:44:52,582:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#68862
+2023-06-21 11:44:53,721:['GET', '/start', 'HTTP/1.1']
+2023-06-21 11:44:53,721:checking what the client wants to do
+2023-06-21 11:44:53,722:client started a party so moving his socket to the thread
+2023-06-21 11:44:53,722:HTTP/1.1 200 0K
+
+
+2023-06-21 11:44:53,723:client have reached the party
+2023-06-21 11:44:57,765:got a msg from leader
+2023-06-21 11:44:57,765:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-21 11:44:57,765:stan
+2023-06-21 11:44:57,765:got a song request
+2023-06-21 11:44:57,767:we got the song he wants
+2023-06-21 11:44:57,767:getting mp3 file data
+2023-06-21 11:44:57,805:sending the messages to the party members
+2023-06-21 11:45:06,938:got a msg from leader
+2023-06-21 11:45:06,940:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-21 11:45:06,940:['']
+2023-06-21 11:59:20,487:client wants to connect
+2023-06-21 11:59:20,489:['GET', '/', 'HTTP/1.1']
+2023-06-21 11:59:41,726:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 11:59:41,727:checking what the client wants to do
+2023-06-21 12:24:05,703:client wants to connect
+2023-06-21 12:24:05,709:['GET', '/', 'HTTP/1.1']
+2023-06-21 12:24:30,689:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 12:24:30,690:checking what the client wants to do
+2023-06-21 12:31:06,524:client wants to connect
+2023-06-21 12:31:06,527:['GET', '/', 'HTTP/1.1']
+2023-06-21 12:31:21,274:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 12:31:21,276:checking what the client wants to do
+2023-06-21 12:37:06,082:client wants to connect
+2023-06-21 12:37:06,084:['GET', '/', 'HTTP/1.1']
+2023-06-21 12:37:16,285:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 12:37:16,285:checking what the client wants to do
+2023-06-21 12:41:51,009:client wants to connect
+2023-06-21 12:41:51,011:['GET', '/', 'HTTP/1.1']
+2023-06-21 12:42:02,136:['POST', '/upload', 'HTTP/1.1']
+2023-06-21 12:42:02,136:checking what the client wants to do
+2023-06-21 12:50:56,388:client wants to connect
+2023-06-21 12:50:56,391:['GET', '/', 'HTTP/1.1']
+2023-06-21 12:51:00,106:['POST', '/sign', 'HTTP/1.1']
+2023-06-21 12:51:00,107:checking what the client wants to do
+2023-06-21 12:51:00,107:adding client to database
+2023-06-21 12:51:00,129:generating a new party and a random code
+2023-06-21 12:51:00,129:giving to the client his id and party code
+2023-06-21 12:51:00,129:HTTP/1.1 200 0K
+Content-Type: text/plain
+Content-Length: 16
+
+id#1#party#76906
+2023-06-21 12:51:01,116:['GET', '/start', 'HTTP/1.1']
+2023-06-21 12:51:01,116:checking what the client wants to do
+2023-06-21 12:51:01,116:client started a party so moving his socket to the thread
+2023-06-21 12:51:01,116:HTTP/1.1 200 0K
+
+
+2023-06-21 12:51:01,118:client have reached the party
+2023-06-21 12:51:05,860:got a msg from leader
+2023-06-21 12:51:05,860:['GET', '/Party/stan', 'HTTP/1.1']
+2023-06-21 12:51:05,860:stan
+2023-06-21 12:51:05,860:got a song request
+2023-06-21 12:51:05,862:we got the song he wants
+2023-06-21 12:51:05,862:getting mp3 file data
+2023-06-21 12:51:05,888:sending the messages to the party members
+2023-06-21 12:51:24,420:got a msg from leader
+2023-06-21 12:51:24,420:['GET', '/Party/flashing-lights', 'HTTP/1.1']
+2023-06-21 12:51:24,421:flashing-lights
+2023-06-21 12:51:24,421:got a song request
+2023-06-21 12:51:24,421:we got the song he wants
+2023-06-21 12:51:24,421:getting mp3 file data
+2023-06-21 12:51:24,442:sending the messages to the party members
+2023-06-21 12:51:30,112:got a msg from leader
+2023-06-21 12:51:30,113:[WinError 10054] An existing connection was forcibly closed by the remote host
+2023-06-21 12:51:30,114:['']

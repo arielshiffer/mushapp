@@ -10,13 +10,12 @@ import random
 import sqlite3
 import socket
 import threading
-import hashlib
 import Party
 import select
 import logging
+import os
 
 # Constants
-START_COMMANDS = ['/join', '/log', '/sign']
 SPACE = '\r\n\r\n'
 LIL_SPACE = '\r\n'
 OTHER_TYPE_HEADER = 'Content-Type: text/plain\r\n'
@@ -232,6 +231,17 @@ def create_http_respond(respond, type_of_body, extra_body, is_it_bytes=False):
         return http_respond
 
 
+def check_file(filename):
+    if os.path.isfile(filename):  # Check if the file exists
+        file_extension = os.path.splitext(filename)[1]  # Get the file extension
+        if file_extension.lower() == ".mp3":
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
 def generate_new_party(leader_socket):
     """
     Opening a new party object and giving it a code.
@@ -410,7 +420,8 @@ def main():
                 # remember to add abortion function
                 logging.debug('there is a problem with client')
                 open_client_sockets.remove(current_socket)
-                current_socket.close()
+                if current_socket != server_socket:
+                    current_socket.close()
             for current_socket in rlist:
                 # check for new connection
                 if current_socket is server_socket:
@@ -445,6 +456,9 @@ def main():
                         # handle the received data
                         flag, data = validate_http_request(data)
                         if data != BAD_REQUEST:
+                            print(data)
+                            print(id)
+                            print(client_socket)
                             msg_to_return, client_id, party_code = \
                                 process_client(data, current_socket, id)
                             if client_id != 0 and party_code != '0':
@@ -462,6 +476,8 @@ def main():
                                         create_http_respond(msg_to_return,
                                                             None, None)
                                     current_socket.send(http_msg.encode())
+                                elif party_code == '4':
+                                    logging.debug('uploading process')
                                 else:
                                     logging.debug('giving to the client '
                                                   'his id and party code')
@@ -503,8 +519,6 @@ def main():
 
 if __name__ == "__main__":
     # Call the main handler function
-    assert hash_string('shiffer') == '222dfd2094b832cb87daaeaf12d1' \
-                                     'c29224c945b0f56bced58962de254ac77998'
     logging.basicConfig(filename='MushApp_server.log', level=logging.DEBUG,
                         format='%(asctime)s:%(message)s')
     parties = []

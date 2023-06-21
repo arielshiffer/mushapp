@@ -44,14 +44,19 @@ class ClientCommunication:
             print("Socket error:", str(e))
             logging.debug("Socket error:", str(e))
 
-    def send_data(self, data):
+    def send_data(self, data, encoding=True):
         """
         Getting data from user and sending it through
         the socket.
         :param data: what the user wants to send, string.
+        :param encoding: if we want to send the message
+        encoded or not.
         """
         try:
-            self.client_socket.send(data.encode())
+            if encoding:
+                self.client_socket.send(data.encode())
+            else:
+                self.client_socket.send(data)
             logging.debug('sending data to the server')
         except socket.error as e:
             client_socket.close()
@@ -94,30 +99,47 @@ class ClientCommunication:
 # ---------------------------------------------------------------------------------------------------
 
 
-def create_http_request(method, uri, body):
+def create_http_request(method, uri, body, is_bytes=False, type_header='text/plain'):
     """
     Creating a generic HTTP request by its normal
     structure.
+    :param type_header: the type of the data we sending
     :param method: which method does the user
     wants to use(post, get, patch).
     :param uri: whats the URI of the
     request-> what is the middle part of the
     request.
-    :param body:
+    :param body: what we want to send to the server.
+    :param is_bytes: is the content of the body
+    is string or bytes.
     :return: the created HTTP request that made
     by the values we got.
     """
-    logging.debug('creating new HTTP request')
-    http_request = '{} {} HTTP/1.1\r\n'.\
-        format(method, uri)
-    if method != METHODS[0] and body:
-        http_request += 'Content-Type: text/plain\r\n'
-        http_request += 'Content-Length: {}\r\n'.\
-            format(str(len(body)))
-        http_request += '\r\n{}'.format(body)
-    else:
-        http_request += '\r\n'
-    return http_request
+    if not is_bytes:
+        logging.debug('creating new HTTP request')
+        http_request = '{} {} HTTP/1.1\r\n'.\
+            format(method, uri)
+        if body:
+            http_request += 'Content-Type: {}\r\n'.format(type_header)
+            http_request += 'Content-Length: {}\r\n'.\
+                format(len(body))
+            http_request += '\r\n{}'.format(body)
+        else:
+            http_request += '\r\n'
+        return http_request
+    elif is_bytes:
+        logging.debug('creating new HTTP request')
+        http_request = '{} {} HTTP/1.1\r\n'.\
+            format(method, uri)
+        if body:
+            http_request += 'Content-Type: {}\r\n'.format(type_header)
+            http_request += 'Content-Length: {}\r\n\r\n'.\
+                format(len(body))
+
+            http_request = http_request.encode() + body
+        else:
+            http_request = http_request.encode() + '\r\n'.encode()
+        return http_request
 
 
 def handle_http_respond(is_it_bytes=False):
@@ -195,6 +217,15 @@ def handle_http_respond(is_it_bytes=False):
             return 'BAD', None
 
 
+def check_song_name(song_name):
+    if ' ' in song_name:
+        return False
+    for letter in song_name:
+        if letter.isupper():
+            return False
+    return True
+
+
 def hash_string(string):
     """
     For safety reasons every time we save a users password
@@ -219,15 +250,31 @@ def hash_string(string):
 
 class HomePage(GridLayout):
     # 1
-    def __init__(self, **kwargs):
+    def __init__(self, has_returned=False, **kwargs):
         """
         Creating the first connection with the server and
         getting started.
         """
-        first_http = create_http_request(METHODS[0], '/', '')
-        client_socket.send_data(first_http)
-        approve = client_socket.receive_data(1024)
-        if approve and approve.split(' ')[1] == '200':
+        if not has_returned:
+            first_http = create_http_request(METHODS[0], '/', '')
+            client_socket.send_data(first_http)
+            approve = client_socket.receive_data(1024)
+            if approve and approve.split(' ')[1] == '200':
+                super(HomePage, self).__init__(**kwargs)
+                self.cols = 1
+                self.sign_in = Button(text='Sign Up')
+                self.sign_in.bind(on_press=self.open_sign_in_func)
+                self.add_widget(self.sign_in)
+
+                self.log_in = Button(text='Log In')
+                self.log_in.bind(on_press=self.open_log_in_func)
+                self.add_widget(self.log_in)
+
+                self.join_party = Button(text='Join A Party')
+                self.join_party.bind(on_press=self.open_join_party_func)
+                self.add_widget(self.join_party)
+
+        elif has_returned:
             super(HomePage, self).__init__(**kwargs)
             self.cols = 1
             self.sign_in = Button(text='Sign Up')
@@ -304,6 +351,10 @@ class JoinPartyPage(GridLayout):
         self.enter_info.bind(on_press=self.party_enter)
         self.add_widget(self.enter_info)
 
+        self.return_button = Button(text='Return')
+        self.return_button.bind(on_press=self.return_home)
+        self.add_widget(self.return_button)
+
     def party_enter(self, instance):
         """
         After he entered his party code we send it to the server to
@@ -330,6 +381,15 @@ class JoinPartyPage(GridLayout):
             logging.debug("the client couldn't join that party didn't "
                           "have the right code")
 
+    def return_home(self, instance):
+        home_page = HomePage(has_returned=True)
+
+        # create a popup and add the login dialog to it
+        popup = Popup(title='HOME', content=home_page)
+
+        # open the popup
+        popup.open()
+
 
 class LogClientInfo(GridLayout):
     # 2
@@ -350,6 +410,10 @@ class LogClientInfo(GridLayout):
         self.enter_info = Button(text='Enter')
         self.enter_info.bind(on_press=self.log_enter)
         self.add_widget(self.enter_info)
+
+        self.return_button = Button(text='Return')
+        self.return_button.bind(on_press=self.return_home)
+        self.add_widget(self.return_button)
 
     def log_enter(self, instance):
         """
@@ -375,6 +439,15 @@ class LogClientInfo(GridLayout):
             # open the popup
             popup.open()
 
+    def return_home(self, instance):
+        home_page = HomePage(has_returned=True)
+
+        # create a popup and add the login dialog to it
+        popup = Popup(title='HOME', content=home_page)
+
+        # open the popup
+        popup.open()
+
 
 class SignClientInfo(GridLayout):
     # 2
@@ -396,6 +469,10 @@ class SignClientInfo(GridLayout):
         self.enter_info = Button(text='Enter')
         self.enter_info.bind(on_press=self.sign_enter)
         self.add_widget(self.enter_info)
+
+        self.return_button = Button(text='Return')
+        self.return_button.bind(on_press=self.return_home)
+        self.add_widget(self.return_button)
 
     def sign_enter(self, instance):
         """
@@ -420,6 +497,15 @@ class SignClientInfo(GridLayout):
 
             # open the popup
             popup.open()
+
+    def return_home(self, instance):
+        home_page = HomePage(has_returned=True)
+
+        # create a popup and add the login dialog to it
+        popup = Popup(title='HOME', content=home_page)
+
+        # open the popup
+        popup.open()
 
 
 class AfterEnterPage(GridLayout):
@@ -490,46 +576,48 @@ class PartyPage1(GridLayout):
         """
         logging.debug('client wants to play {}'
                       .format(self.song_input.text))
-        change_request = create_http_request(METHODS[0], '/Party/{}'
-                                             .format(self.song_input.text),
-                                             None)
-        client_socket.send_data(change_request)
-        flag = True
-        type_of_data = ''
-        data = ''
-        file_data = []
-        while type_of_data != 'text/plain' and flag:
-            data, type_of_data = handle_http_respond(True)
-            if data == 'BAD':
-                logging.debug('probably wrong name')
-                flag = False
-            elif data and type_of_data != 'text/plain':
-                file_data.append(data)
-            elif type_of_data == 'text/plain' and data != 'end':
-                break
-            elif data == 'end':
-                client_socket.close()
-            else:
-                logging.debug('problem')
-        if flag:
-            logging.debug('we have this song and we downloading it to a file')
-            self.song_name = 'copy_{}.mp3'.format(data.split('#')[2])
-            name_of_file = 'copy_{}.mp3'.format(data.split('#')[2])
+        song_input = self.song_input.text.lower().replace(" ", "-")
+        if check_song_name(song_input):
+            change_request = create_http_request(METHODS[0], '/Party/{}'
+                                                 .format(song_input),
+                                                 None)
+            client_socket.send_data(change_request)
+            flag = True
+            type_of_data = ''
+            data = ''
+            file_data = []
+            while type_of_data != 'text/plain' and flag:
+                data, type_of_data = handle_http_respond(True)
+                if data == 'BAD':
+                    logging.debug('probably wrong name')
+                    flag = False
+                elif data and type_of_data != 'text/plain':
+                    file_data.append(data)
+                elif type_of_data == 'text/plain' and data != 'end':
+                    break
+                elif data == 'end':
+                    client_socket.close()
+                else:
+                    logging.debug('problem')
+            if flag:
+                logging.debug('we have this song and we downloading it to a file')
+                self.song_name = 'copy_{}.mp3'.format(data.split('#')[2].split('\\')[1])
+                name_of_file = 'copy_{}.mp3'.format(data.split('#')[2].split('\\')[1])
 
-            with open(name_of_file, 'wb') as f:
-                f.write(file_data[0])
-            file_data.remove(file_data[0])
-            for parts in file_data:
-                with open(name_of_file, 'ab') as f:
-                    f.write(parts)
-            self.song_label.text = self.song_name
-            print(self.song_name)
-            if self.sound:
-                self.sound.stop()
-            self.sound = SoundLoader.load(self.song_name)
-            if self.sound:
-                logging.debug('playing song')
-                self.sound.play()
+                with open(name_of_file, 'wb') as f:
+                    f.write(file_data[0])
+                file_data.remove(file_data[0])
+                for parts in file_data:
+                    with open(name_of_file, 'ab') as f:
+                        f.write(parts)
+                self.song_label.text = self.song_name
+                print(self.song_name)
+                if self.sound:
+                    self.sound.stop()
+                self.sound = SoundLoader.load(self.song_name)
+                if self.sound:
+                    logging.debug('playing song')
+                    self.sound.play()
 
 
 class PartyPage2(GridLayout):
@@ -582,9 +670,9 @@ class PartyPage2(GridLayout):
             if flag and running:
                 logging.debug('we got the song downloading it now')
                 self.song_name = 'client_{}.mp3'\
-                    .format(data.split('#')[2])
+                    .format(data.split('#')[2].split('\\')[1])
                 name_of_file = 'client_{}.mp3'\
-                    .format(data.split('#')[2])
+                    .format(data.split('#')[2].split('\\')[1])
                 self.song_label.text = name_of_file
                 with open(name_of_file, 'wb') as f:
                     f.write(file_data[0])
@@ -618,6 +706,8 @@ class ParentApp(App):
 
 
 if __name__ == '__main__':
+    assert hash_string('shiffer') == '222dfd2094b832cb87daaeaf12d1' \
+                                     'c29224c945b0f56bced58962de254ac77998'
     assert create_http_request('GET', '/', None) == \
            'GET / HTTP/1.1\r\n\r\n'
     logging.basicConfig(filename='MushApp_client.log',
